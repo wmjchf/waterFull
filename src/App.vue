@@ -1,28 +1,149 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <WaterFall :cols="cols" :imgList="imgList"></WaterFall>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import WaterFall from "./components/waterFall.vue"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WaterFall
+  },
+  data(){
+    return {
+      cols:4,
+      imgList:[
+        {
+          "src": "http://10.1.2.158:3000/image/1.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":322
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/2.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":322
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/3.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":452
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/4.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":171
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/5.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":223
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/6.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":167
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/7.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":308
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/8.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":302
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/9.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":160
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/10.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":322
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/11.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":255
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/12.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":269
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/13.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":182
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/14.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":353
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/15.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":249
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/16.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":309
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/17.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":240
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/18.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":334
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/19.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":322
+        },
+        {
+          "src": "http://10.1.2.158:3000/image/20.jpg",
+          "href": "https://www.baidu.com",
+          "info": "一些图片描述文字",
+          "_height":322
+        }
+      ]
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+  #app{
+    width:975px;
+    margin:0 auto;
+  }
 </style>
