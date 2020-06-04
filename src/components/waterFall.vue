@@ -30,7 +30,7 @@ export default {
       },
       heightDiv:[],
       startFor:0,
-      imgSrc:"http://10.1.2.158:3000/image/1.jpg"
+      containerElement:null
     }
   },
   watch:{
@@ -39,15 +39,22 @@ export default {
         for(let i=0;i<cols;i++){
          let key=`col_item_${i}`;
          this.$set(this.imgListSort,key,[])
-          //this.imgListSort[key]=[];
+          //this.imgListSort[key]=[];//vue不会对新增加的属性进行监听
         }
       },
       immediate:true
+    },
+    imgList(){
+      this.appendImage();
     }
   },
   mounted () {
+    //每列高度用数组缓存起来
     this.initHeightDiv();
+    //把图片插到高度最小的一列
     this.appendImage();
+    //当滑动到低端时触发事件
+    this.watchScroll();
   },
   methods:{
     initHeightDiv(){
@@ -55,11 +62,8 @@ export default {
       col_item.forEach((node)=>{
         this.heightDiv.push(node.offsetHeight);
       })
-      this.heightDiv[0]=10;
-      this.heightDiv[1]=15;
-      this.heightDiv[2]=14;
-      this.heightDiv[3]=13;
     },
+    //计算出高度最小的那一列
     minHeightDiv(){
       return this.indexOfSmallest(this.heightDiv);
     },
@@ -74,8 +78,19 @@ export default {
         let key=`col_item_${index}`;
         this.imgListSort[key].push(this.imgList[i].src);
         this.heightDiv[index]=this.heightDiv[index]+this.imgList[i]._height;
-        console.log(this.heightDiv);
       }
+      this.startFor=this.imgList.length;
+    },
+    //监听滚动事件
+    watchScroll(){
+      window.addEventListener("scroll",()=>{
+        let scrollHeight=document.documentElement.scrollHeight;
+        let scrollTop=document.documentElement.scrollTop;
+        let clientHeight=document.documentElement.clientHeight;
+        if(scrollHeight-scrollTop==clientHeight){
+          this.$emit("reachBottom")
+        }
+      })
     }
   }
 }

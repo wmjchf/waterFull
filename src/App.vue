@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <WaterFall :cols="cols" :imgList="imgList"></WaterFall>
+    <!--
+      cols:瀑布流布局的列数
+      imgList:图片列表，注意：src必须是服务器的地址，本地不行（本地打包会找不到图片的路径）
+      reachBottom:当滑动到底端时被触发
+    -->
+    <WaterFall :cols="cols" :imgList="imgList" @reachBottom="getMoreImg"></WaterFall>
   </div>
 </template>
 
@@ -14,6 +19,7 @@ export default {
   data(){
     return {
       cols:4,
+      imgWidth:230,
       imgList:[
         {
           "src": "http://10.1.2.158:3000/image/1.jpg",
@@ -136,6 +142,11 @@ export default {
           "_height":322
         }
       ]
+    }
+  },
+  methods:{
+    getMoreImg(){
+      this.imgList.push(...this.imgList);
     }
   }
 }
